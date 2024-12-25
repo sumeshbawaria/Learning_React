@@ -1,0 +1,8 @@
+reconcilation : the algo react uses to diff one tree with anither to determine which parts to be changes.
+
+Update: a change in the data used to render a react app. usually the result of 'setState'. eventually results in a re-render.
+
+reactdom
+
+a tag not used in react cause it reload whole page
+that's why we use Navlink
