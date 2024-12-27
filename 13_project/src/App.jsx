@@ -1,12 +1,41 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
+import {useDispatch} from 'react-redux'
+import authService from './appwrite/auth'
+import {logOut,login} from './store/authSlice'
+import { Footer, Header } from './components'
+
 
 function App() {
-  console.log(import.meta.env.VITE_APPWRITE_URL);
+
+  //loading status
   
-  return (
-    <>
-    <h1>A blog with appwite</h1></>
-  )
+  const [loading, setloading] = useState(true)
+  const dispath = useDispatch()
+
+  useEffect(() => {
+    authService.getCurrentUser()
+    .then((userData) => {
+      if(userData){
+        dispath()
+      }
+      else{
+        dispath(logOut())
+      }
+    })
+    .finally(() => setloading(false))
+  },[])
+
+  return !loading ? (
+    <div className='min-h-screen flex flex-wrap content-between '>
+      <div className='w-full block'>
+        <Header/>
+        <main>
+          {/* <Outlet/> */}
+        </main>
+        <Footer/>
+      </div>
+    </div>
+  ) : null
 }
 
 export default App
