@@ -6,7 +6,7 @@ function Card(props) {
   // function Card({username}){
             <h1 className="font-bold font-mono text-xl">{props.channel}</h1>
 
-console.log(username);
+// console.log(username);
 
     
     return (
@@ -19,7 +19,7 @@ console.log(username);
           />
           <div className="glass py-4 px-5 relative -top-[3.4rem]  rounded-xl z-10">
             {/* <h1 className="font-bold font-mono text-xl">{props.channel}</h1> */}
-            <h1 className="font-bold font-mono text-xl">{username}</h1>
+            <h1 className="font-bold font-mono text-xl">{props.username}</h1>
           </div>
         </div>
         </>

@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux'
 import authService from '../../appwrite/auth'
 import { logOut } from '../../store/authSlice'
 
-
-function LogoBtn() {
+function LogOutBtn() {
     const dispatch = useDispatch()
     const logoutHandler = () => {
         authService.logOut().then(() => {
             dispatch(logOut())
+        })
+        .catch((error) => {
+          console.log("LogOut button error :: error",error);
         })
     }
   return (
@@ -17,4 +19,4 @@ function LogoBtn() {
   )
 }
 
-export default LogoBtn 
+export default LogOutBtn 
