@@ -1,9 +1,10 @@
 import React, { useEffect,useState } from 'react'
 import {useDispatch} from 'react-redux'
+import './App.css'
 import authService from './appwrite/auth'
-import {logOut,login} from './store/authSlice'
+import {logout,login} from './store/authSlice'
 import { Footer, Header } from './components'
-
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
@@ -16,21 +17,21 @@ function App() {
     authService.getCurrentUser()
     .then((userData) => {
       if(userData){
-        dispath()
+        dispath(login({userData}))
       }
       else{
-        dispath(logOut())
+        dispath(logout())
       }
     })
     .finally(() => setloading(false))
   },[])
 
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between '>
+    <div className='h-fit flex flex-wrap content-between bg-gray-200 rounded-xl'>
       <div className='w-full block'>
         <Header/>
-        <main>
-          {/* <Outlet/> */}
+        <main className='pt-5'>
+          TODO: <Outlet/>
         </main>
         <Footer/>
       </div>

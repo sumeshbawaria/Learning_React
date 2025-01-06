@@ -4,23 +4,23 @@ const initialState = {
     status: false,
     userData: null
 }
-// for knowing whether user is authenticated or not
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
         login: (state, action) => {
+            // console.log("Action Payload:", action.payload);
             state.status = true;
             state.userData = action.payload.userData;
         },
-        logOut: (state) => {
+        logout: (state) => {
             state.status = false;
             state.userData = null;
         }
     }
 })
 
-export const { login, logOut } = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 
-export default authSlice.reducer
+export default authSlice.reducer;
