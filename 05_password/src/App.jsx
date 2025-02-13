@@ -51,7 +51,7 @@ function App() {
           <div className="flex itmes-center gap-x-1">
             <input type="range"
             min={6}
-            max={100}
+            max={16}
             value={length}
             className='cursor-pointer'
             onChange={(e) => {setLength(e.target.value)}}

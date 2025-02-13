@@ -4,27 +4,27 @@ import useCurrencyInfo from './hooks/useCurrencyInfo'
 
 function App() {
 
-  const [amount, setAmount] = useState(0)
-  const [from, setFrom] = useState("usd")
-  const [to, setTo] = useState("inr")
-  const [convertedAmount, setConvertedAmount] = useState(0)
+    const [amount, setAmount] = useState(0)
+    const [from, setFrom] = useState("usd")
+    const [to, setTo] = useState("inr")
+    const [convertedAmount, setConvertedAmount] = useState(0)
 
-  const currencyinfo = useCurrencyInfo(from)
+    const currencyinfo = useCurrencyInfo(from)
 
-  const options = Object.keys(currencyinfo)
+    const options = Object.keys(currencyinfo)
 
-  const swap = () => {
+    const swap = () => {
     setFrom(to)
     setTo(from)
     setConvertedAmount(amount)
     setAmount(convertedAmount)
-  }
-  
-  const convert = () => {
-    setConvertedAmount(amount * currencyinfo[to])
-  }
+    }
+    
+    const convert = () => {
+        setConvertedAmount(amount * currencyinfo[to])
+    }
 
-  return (
+    return (
     
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
