@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useTodo } from '../context/ToDoContext'
 
-
 function TodoItem({ todo }) {
   const [isTodoEditable, setIsTodoEditable] = useState(false)
   const[todoMsg, setTodoMsg] = useState(todo.todo)
@@ -58,7 +57,7 @@ function TodoItem({ todo }) {
               ❌
           </button>
       </div>
-  );
+);
 }
 
 export default TodoItem;

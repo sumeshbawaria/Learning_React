@@ -1,12 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { createBrowserRouter, createRoutesFromElements, Route, Router, RouterProvider } from 'react-router-dom'
 import About from './components/about/About.jsx'
 import Layout from './layout.jsx'
 import Home from './components/home/home.jsx'
-import Contact from './components/contact/contact.jsx'
+// import Contact from './components/contact/contact.jsx'
 import User from './components/User/User.jsx'
 import Github,{githubInfoLoader} from './components/Github/Github.jsx'
 
@@ -40,7 +39,7 @@ const router = createBrowserRouter(
       <Route path='about' element={<About/>} >
         <Route path='sumesh' />
       </Route>
-      <Route path='contact' element={<Contact/>} />
+      {/* <Route path='contact' element={<Contact/>} /> */}
       <Route path='user/:userid' element={<User/>} />
       <Route 
         loader={githubInfoLoader}
